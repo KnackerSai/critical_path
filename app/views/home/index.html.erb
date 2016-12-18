@@ -1,0 +1,19 @@
+<%= link_to "Critical path", critical_path_path %>
+<h2>---</h2>
+<div id="gantt_here" style='width:100%; height:800px;'></div>
+
+<script>
+    gantt.config.xml_date="%Y-%m-%d %H:%i";
+    gantt.config.grid_resize = true;
+    gantt.config.fit_tasks = true;
+
+    gantt.init("gantt_here");
+    gantt.load("<%= data_path %>");
+
+    var dp = new dataProcessor("<%= data_path %>");
+    dp.init(gantt);
+    dp.setTransactionMode("REST");
+</script>
+
+
+

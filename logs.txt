@@ -1,0 +1,70 @@
+Task 1: 18
+Task 2: 19
+Task 4: 21
+Task 5: 22
+Task 6: 23
+Task 7 : 26
+Task 8: 34
+Task 3: 42
+
+Task 18 has 2sources
+Task 19 has 1sources
+Task 21 has 0sources
+Task 22 has 1sources
+Task 23 has 1sources
+Task 26 has 1sources
+Task 34 has 1sources
+Task 42 has 2sources
+Tree: 
+18: 22, 19, 
+19: 21, 
+22: 21, 
+23: 19, 
+26: 34, 
+34: 22, 
+42: 23, 18, 
+Reverse tree: 
+22: 18, 34, 
+21: 19, 22, 
+19: 23, 18, 
+34: 26, 
+23: 42, 
+18: 42, 
+Critical duration = 9
+Critical path: 42, 23, 19, 21, 
+Task params: 
+18:
+ ES: 1, EF: 3, LS: 3, LF: 5
+19:
+ ES: 5, EF: 7, LS: 5, LF: 7
+21:
+ ES: 7, EF: 9, LS: 7, LF: 9
+22:
+ ES: 4, EF: 6, LS: 5, LF: 7
+23:
+ ES: 1, EF: 5, LS: 1, LF: 5
+26:
+ ES: 0, EF: 2, LS: 1, LF: 3
+34:
+ ES: 2, EF: 4, LS: 3, LF: 5
+42:
+ ES: 0, EF: 1, LS: 0, LF: 1
+Task 18 has 2sources
+Task 19 has 1sources
+Task 21 has 0sources
+Task 22 has 1sources
+Task 23 has 1sources
+Task 26 has 1sources
+Task 34 has 1sources
+Task 42 has 2sources
+Tree: 
+Task 18 has 2sources
+Task 19 has 1sources
+Task 21 has 0sources
+Task 22 has 1sources
+Task 23 has 1sources
+Task 26 has 1sources
+Task 34 has 1sources
+Task 42 has 2sources
+Tree: 
+18: 

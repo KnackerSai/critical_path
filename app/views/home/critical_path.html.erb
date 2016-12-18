@@ -1,0 +1,49 @@
+<%= link_to "Back", root_path%>
+<h2>---</h2>
+<h2>Critical path method</h2>
+<h3>Start date of the project: <%=@start_date.strftime("%d-%m-%Y")%></h3>
+<h3>Finish date of the project: <%=(@start_date+@critical_duration.days).strftime("%d-%m-%Y")%></h3>
+<h3>Duration of the project: <%=@critical_duration%></h3>
+<h3>Tasks parameters </h3>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>|Duration</th>
+    <th>|<%=@es%></th>
+    <th>|<%=@ef%></th>
+    <th>|<%=@ls%></th>
+    <th>|<%=@lf%></th>
+    <th>|<%=@cr_p%></th>
+    <th>|<%=@free%></th>
+  </tr>
+  <% Task.all.each do |task|%>
+      <tr>
+        <td><%=task.text%></td>
+        <td>|<%=task.duration%> days</td>
+        <td>|<%=(@start_date+@tasks_params[task.id][@es].days).strftime("%d-%m-%Y")%></td>
+        <td>|<%=(@start_date+@tasks_params[task.id][@ef].days).strftime("%d-%m-%Y")%></td>
+        <td>|<%=(@start_date+@tasks_params[task.id][@ls].days).strftime("%d-%m-%Y")%></td>
+        <td>|<%=(@start_date+@tasks_params[task.id][@lf].days).strftime("%d-%m-%Y")%></td>
+        <td>|<%=@tasks_params[task.id][@cr_p]%></td>
+        <td>|<%=@tasks_params[task.id][@free]%></td>
+      </tr>
+  <%end%>
+</table>
+
+<div id="gantt_here" style='width:100%; height:800px;'></div>
+
+<script>
+    gantt.config.xml_date="%Y-%m-%d %H:%i";
+    gantt.config.grid_resize = true;
+    gantt.config.fit_tasks = true;
+
+    gantt.init("gantt_here");
+    gantt.load("<%= data_path %>");
+
+    var dp = new dataProcessor("<%= data_path %>");
+    dp.init(gantt);
+    dp.setTransactionMode("REST");
+</script>
+
+
+
